@@ -46,7 +46,6 @@ nav {
 .navbar-brand img {
     height: 24px;
     margin-right: 10px;
-    filter: invert(30%) sepia(10%) saturate(1000%) hue-rotate(340deg) brightness(80%) contrast(90%);
 }
 
 .navbar-links {
@@ -375,4 +374,51 @@ footer {
     font-size: 14px;
     color: #eff1ed;
     opacity: 0.7;
+}
+
+/*Movil*/
+@media (max-width: 768px) {
+
+
+    nav {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .banner {
+        height: 350px; 
+        margin: 20px;
+    }
+
+
+    .actividades {
+        grid-template-columns: 1fr; 
+        padding: 0 20px; 
+    }
+
+
+    .pasado {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+
+
+    .unete {
+        padding: 50px 20px; 
+        margin: 30px 20px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr; 
+    }
+
+    .footer-column.info iframe {
+        width: 100%; 
+    }
 }
