@@ -270,11 +270,18 @@ h2 {
     margin-right: auto;
 }
 
-/* --- Footer --- */
 footer {
     background-color: #766153;
     color: #eff1ed;
     padding: 50px 0 30px 0;
+}
+
+.footer-column.info iframe {
+    width: 85%;
+    height: 200px;
+    border: 0;
+    border-radius: 8px; 
+    margin-top: 15px; 
 }
 
 .footer-container {
