@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Únete a la asociación cultural de cameron">
+    <meta name="description"
+        content="Página principal de la página web de la asociación cultural de un pueblo de Teruel">
     <title>Asociación cultural</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/unete.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" type="image/x-icon" href="../media/logo.png">
+    <script src="../js/modo-oscuro.js"></script>
+    <meta name="color-scheme" content="light dark">
 </head>
 
 <body>
@@ -28,6 +31,8 @@
             </ul>
 
             <a href="/unete" class="navbar-button">Únete</a>
+
+            <a id="icono-modo-oscuro"><i data-feather="moon"></i></a>
         </nav>
     </header>
     <main>
@@ -128,8 +133,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 <script>
+    // Constantes de credenciales públicas 
     const PUBLIC_KEY = 'NkDyV8JWHs9OvLcxh';     
-    const SERVICE_ID = 'cameron';    
+    const SERVICE_ID = 'camerona';    
     const TEMPLATE_ID = 'template_duz1hqh';  
 
     // Inicializar EmailJS

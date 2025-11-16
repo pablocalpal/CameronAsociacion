@@ -40,7 +40,7 @@ textarea {
     font-size: 14px;
     color: #666;
     background-color: #fafafa;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -92,6 +92,7 @@ button:active {
     text-align: center;
     font-weight: 500;
     display: none;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .message.success {
@@ -120,9 +121,8 @@ button:active {
     color: #bcbd8b;
 }
 
-
+/*Móvil*/
 @media (max-width: 768px) {
-
     .form-container {
         margin: 20px auto;
         padding: 20px;
@@ -132,4 +132,60 @@ button:active {
     .form-row {
         grid-template-columns: 1fr;
     }
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #373d20;
+    color: #eff1ed;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    border: 1px solid #5C4F42;
+    color: #eff1ed;
+    background-color: #4a4e2d;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    border-color: #bcbd8b;
+    background-color: #5C4F42;
+}
+
+body.dark-mode .optional {
+    color: #bcbd8b;
+}
+
+body.dark-mode .message.success {
+    background: #1a3a22;
+    color: #a8d7b3;
+    border: 1px solid #2b6a3e;
+}
+
+body.dark-mode .message.error {
+    background: #441c23;
+    color: #f0b6be;
+    border: 1px solid #721c24;
+}
+
+body.dark-mode #politica-privacidad a {
+    color: #bcbd8b;
+}
+
+body.dark-mode #politica-privacidad a:hover {
+    color: #ffffff;
+}
+
+body.dark-mode button {
+    background-color: #766153;
+    color: #eff1ed;
+}
+
+body.dark-mode button:hover {
+    background-color: #8a7565;
+}
+
+body.dark-mode button:active {
+    background-color: #6a584b;
 }

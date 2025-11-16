@@ -279,8 +279,8 @@ footer {
     width: 85%;
     height: 200px;
     border: 0;
-    border-radius: 8px; 
-    margin-top: 15px; 
+    border-radius: 8px;
+    margin-top: 15px;
 }
 
 .footer-container {
@@ -379,10 +379,9 @@ footer {
 /*Movil*/
 @media (max-width: 768px) {
 
-
     nav {
-        flex-direction: column; 
-        align-items: center; 
+        flex-direction: column;
+        align-items: center;
     }
 
     .navbar-links {
@@ -391,14 +390,14 @@ footer {
     }
 
     .banner {
-        height: 350px; 
+        height: 350px;
         margin: 20px;
     }
 
 
     .actividades {
-        grid-template-columns: 1fr; 
-        padding: 0 20px; 
+        grid-template-columns: 1fr;
+        padding: 0 20px;
     }
 
 
@@ -406,19 +405,79 @@ footer {
         grid-template-columns: 1fr;
         padding: 20px;
     }
-    
+
 
 
     .unete {
-        padding: 50px 20px; 
+        padding: 50px 20px;
         margin: 30px 20px;
     }
 
     .footer-top {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 
     .footer-column.info iframe {
-        width: 100%; 
+        width: 100%;
     }
+}
+
+
+/* MODO OSCURO*/
+body,
+.unete,
+.footer {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #373d20;
+    color: #eff1ed;
+}
+
+body.dark-mode nav {
+    background-color: #4a4e2d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustar títulos y enlaces */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar-links li a,
+body.dark-mode .actividades article h3,
+body.dark-mode .actividades article p {
+    color: #eff1ed;
+}
+
+body.dark-mode .navbar-links li a:hover,
+body.dark-mode .actividades article a:hover {
+    color: #ffffff;
+}
+
+body.dark-mode .actividades article a,
+body.dark-mode .actividades article p.fecha {
+    color: #bcbd8b;
+}
+
+/* Ajustar fondos de secciones */
+body.dark-mode .unete {
+    background-color: #4a4e2d;
+}
+
+body.dark-mode footer {
+    background-color: #5C4F42;
+}
+
+/* Ajustar botones */
+body.dark-mode .navbar-button,
+body.dark-mode .unete .button {
+    background-color: #766153;
+    color: #eff1ed;
+}
+
+body.dark-mode .navbar-button:hover,
+body.dark-mode .unete .button:hover {
+    background-color: #8a7565;
 }
