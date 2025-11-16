@@ -14,23 +14,31 @@
     <script src="../js/modo-oscuro.js"></script>
     <meta name="color-scheme" content="light dark">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D7LL8CESG0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-D7LL8CESG0');
+</script>
 <body>
     <header>
         <nav>
-            <a href="/" class="navbar-brand">
+            <a href="../" class="navbar-brand">
                 <img src="../media/logo.png" alt="Logotipo Asociación">
                 Asociación cultural Cameron
             </a>
 
             <ul class="navbar-links">
-                <li><a href="/">Inicio</a></li>
+                <li><a href="../">Inicio</a></li>
                 <li><a href="/actividades">Actividades</a></li>
                 <li><a href="/historia">Historia</a></li>
                 <li><a href="/sobre">Sobre camerón</a></li>
             </ul>
 
-            <a href="/unete" class="navbar-button">Únete</a>
+            <a href="./unete" class="navbar-button">Únete</a>
 
             <a id="icono-modo-oscuro"><i data-feather="moon"></i></a>
         </nav>
@@ -128,67 +136,7 @@
 <script>
     feather.replace()
 </script>
-
-<!-- SDK Envío de mails desde jsmail - Generado por IA -->
+<!-- Scripts para dar funcionalidad al formulario -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-<script>
-    // Constantes de credenciales públicas 
-    const PUBLIC_KEY = 'NkDyV8JWHs9OvLcxh';     
-    const SERVICE_ID = 'camerona';    
-    const TEMPLATE_ID = 'template_duz1hqh';  
-
-    // Inicializar EmailJS
-    emailjs.init(PUBLIC_KEY);
-
-    // Manejar el envío del formulario
-    document.getElementById('formulario').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const submitBtn = document.getElementById('submit-btn');
-        const messageDiv = document.getElementById('message');
-
-        // Deshabilitar botón y mostrar loading
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Enviando solicitud...';
-        messageDiv.style.display = 'none';
-
-        // Enviar email usando EmailJS
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-
-                // Mostrar mensaje de éxito
-                messageDiv.className = 'message success';
-                messageDiv.textContent = '¡Solicitud enviada correctamente! Te contactaremos pronto para completar la inscripción.';
-                messageDiv.style.display = 'block';
-
-                // Limpiar formulario
-                document.getElementById('formulario').reset();
-
-                // Restaurar botón
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Enviar Solicitud de Inscripción';
-
-                // Scroll al mensaje
-                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-            }, function (error) {
-                console.log('FAILED...', error);
-
-                // Mostrar mensaje de error
-                messageDiv.className = 'message error';
-                messageDiv.textContent = 'Error al enviar la solicitud. Por favor, inténtalo de nuevo o contacta directamente con nosotros.';
-                messageDiv.style.display = 'block';
-
-                // Restaurar botón
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Enviar Solicitud de Inscripción';
-
-                // Scroll al mensaje
-                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            });
-    });
-</script>
-
+<script src="../js/formulario-jsmail.js"></script>
 </html>
