@@ -11,23 +11,19 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" type="image/x-icon" href="./media/logo.png">
     <script src="js/modo-oscuro.js"></script>
+    <script src="js/cookies.js" defer></script>
     <meta name="color-scheme" content="light dark">
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D7LL8CESG0"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-D7LL8CESG0');
-</script>
-
+<div id="cookie-banner" class="cookie-banner">
+    <p>Usamos cookies para analizar el tráfico (Google Analytics). ¿Aceptas?</p>
+    <button id="accept-cookies">Aceptar</button>
+    <button id="reject-cookies">Rechazar</button>
+</div>
 <body>
     <header>
         <nav>
             <a href="./" class="navbar-brand">
-                <img src="media/logo.png" alt="Logotipo Asociación">
+                <img src="./media/logo.png" alt="Logotipo Asociación">
                 Asociación cultural Cameron
             </a>
 
@@ -48,9 +44,10 @@
         <section class="banner">
             <img src="./media/pueblo.jpg" alt="Foto de camarillas" class="banner-imagen">
             <div class="banner-content">
-                <h1>Celebrando el pueblo,<br>Conectando generaciones</h1>
+                <h1>De camarillenses,<br>Para camarillenses</h1>
                 <p>
-                    TEXTO INFERIOR SUBTITULO
+                    La Asociación Cultural Camerón nace en 1992 con el objetivo de promover y preservar la cultura, historia y tradiciones de Camarillas, un pequeño pueblo en la provincia de Teruel.
+                    A lo largo de los años, Camerón ha trabajado incansablemente para revitalizar la vida cultural del pueblo.
                 </p>
             </div>
         </section>
