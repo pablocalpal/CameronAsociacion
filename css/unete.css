@@ -193,3 +193,67 @@ body.dark-mode button:hover {
 body.dark-mode button:active {
     background-color: #6a584b;
 }
+
+/* Quitar el fondo por defecto del "bg-body-tertiary" de bootstrap para controlarlo nosotros */
+.custom-form-card.bg-body-tertiary {
+    background-color: #ffffff !important;
+}
+
+/* Inputs personalizados para quitar el azul de Bootstrap */
+.form-control {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    background-color: #fafafa;
+    color: var(--color-text);
+}
+
+.form-control:focus {
+    border-color: var(--color-secondary); /* Marrón */
+    box-shadow: 0 0 0 0.25rem rgba(118, 97, 83, 0.25); /* Halo marrón suave */
+    background-color: #fff;
+}
+
+/* Mensajes de éxito/error JS */
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* --- MODO OSCURO FORMULARIO --- */
+
+body.dark-mode .custom-form-card.bg-body-tertiary {
+    background-color: #2b301a !important; /* Un tono más oscuro que el fondo pero visible */
+    border-color: #4a4e2d !important;
+}
+
+body.dark-mode .form-label {
+    color: #eff1ed;
+}
+
+body.dark-mode .form-control {
+    background-color: #4a4e2d;
+    border-color: #5C4F42;
+    color: #eff1ed;
+}
+
+body.dark-mode .form-control:focus {
+    background-color: #5C4F42;
+    border-color: var(--color-hover);
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(188, 189, 139, 0.25);
+}
+
+body.dark-mode .form-control::placeholder {
+    color: rgba(239, 241, 237, 0.5);
+}
+
+body.dark-mode .text-muted {
+    color: #bcbd8b !important;
+}

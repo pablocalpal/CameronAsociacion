@@ -1,576 +1,238 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap');
 
-body {
-    background-color: #eff1ed;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    color: #5C4F42;
+/* --- 1. Variables de Color y Base --- */
+:root {
+    --color-bg: #eff1ed;
+    --color-text: #5C4F42;
+    --color-primary: #373d20;  /* Verde oscuro / Logo */
+    --color-secondary: #766153; /* Marrón / Botones */
+    --color-accent: #717744;    /* Verde Oliva / Unete */
+    --color-hover: #bcbd8b;
+    --color-white: #ffffff;
 }
 
-h1,
-h2,
-h3,
-.navbar-brand,
-.footer-column h3 {
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, .navbar-brand, .h1, .h2, .h3, .display-5 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
+    color: var(--color-primary);
 }
 
-.navbar-links li a,
-.navbar-button,
-.actividades article a,
-.unete .button,
-.quick-links li {
+.btn, .nav-link, article a {
     font-family: 'Montserrat', sans-serif;
 }
 
-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 15px 50px;
+/* --- 2. Navbar & Header --- */
+.navbar {
+    background-color: var(--color-bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    gap: 30px;
+    transition: background-color 0.3s;
 }
 
 .navbar-brand {
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #373d20;
-    font-size: 22px;
+    color: var(--color-primary) !important;
+    font-size: 1.3rem;
 }
 
-.navbar-brand img {
-    height: 24px;
-    margin-right: 10px;
-}
-
-.navbar-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 30px;
-}
-
-.navbar-links li a {
-    text-decoration: none;
-    color: #373d20;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-    font-size: 16px;
+.nav-link {
+    color: var(--color-primary);
     font-weight: 600;
 }
 
-.navbar-links li a:hover {
-    color: #766153;
+.nav-link:hover, .nav-link.active {
+    color: var(--color-secondary);
 }
 
-.navbar-button,
-.unete .button {
-    background-color: #766153;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    font-size: 16px;
+/* --- 3. Componentes Personalizados --- */
+
+/* Botones "Brown" */
+.btn-custom {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: 2px solid var(--color-secondary);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: var(--color-text);
+    border-color: var(--color-text);
+    color: var(--color-white);
+}
+
+/* Botones Outline (Cookie reject) */
+.btn-outline-custom {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
     font-weight: 700;
 }
 
-.navbar-button {
-    padding: 10px 25px;
+.btn-outline-custom:hover {
+    background-color: var(--color-text);
+    color: var(--color-white);
 }
 
-.unete .button {
-    padding: 15px 35px;
-}
-
-.navbar-button:hover,
-.unete .button:hover {
-    background-color: #5C4F42;
-}
-
-.banner {
-    position: relative;
-    height: 450px;
-    margin: 45px;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-align: center;
-}
-
-.banner-imagen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.banner::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-}
-
-.banner-content {
-    position: relative;
-    z-index: 1;
-    max-width: 700px;
-}
-
-.banner-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.banner-content p {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-h2 {
-    color: #373d20;
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.actividades {
-    max-width: 1300px;
-    margin: 50px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.actividades h2 {
-    grid-column: 1 / -1;
-}
-
-.actividades article img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-}
-
-.actividades article h3 {
-    font-size: 22px;
-    color: #373d20;
-    margin: 1rem 0 0.5rem 0;
-}
-
-.actividades article p {
-    font-size: 16px;
-    color: #373d20;
-    margin: 0.5rem 0;
-}
-
-.actividades article p.fecha {
-    font-size: 14px;
-    color: #766153;
-    margin-bottom: 0.75rem;
-}
-
-.actividades article p.fecha svg {
-    width: 14px;
-    height: 14px;
-    vertical-align: top;
-    margin-right: 5px;
-}
-
-.actividades article a {
-    display: inline-block;
-    margin-top: 0.5rem;
+/* Enlaces estilo texto */
+.link-custom {
+    color: var(--color-secondary);
     text-decoration: none;
-    font-size: 16px;
-    color: #766153;
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
-
-.actividades article a:hover {
+.link-custom:hover {
+    color: var(--color-primary);
     text-decoration: underline;
-    color: #373d20;
 }
 
-.pasado {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    max-width: 1300px;
-    margin: 40px auto;
-    padding: 40px;
+/* --- 4. Secciones Específicas --- */
+
+/* Banner */
+.banner {
+    height: 450px;
+    background-color: #333; /* Fallback */
+}
+@media (max-width: 768px) {
+    .banner { height: 350px; }
 }
 
-.pasado h2 {
-    grid-column: 1 / -1;
-}
-
-.columna-imagen-pasado img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
+/* Imágenes en Blanco y Negro */
+.grayscale {
     filter: grayscale(100%);
 }
 
-.columna-texto-pasado {
-    line-height: 1.7;
-}
-
-.columna-texto-pasado p {
-    text-align: justify;
-    margin-bottom: 1.2em;
-}
-
-.columna-texto-pasado p:last-child {
-    margin-bottom: 0;
-}
-
+/* Sección Únete */
 .unete {
-    background-color: #717744;
-    padding: 80px 20px;
-    margin: 40px auto;
-    border-radius: 12px;
-    max-width: 1260px;
-    text-align: center;
-    color: #ffffff;
+    background-color: var(--color-accent);
+}
+.unete .btn {
+    color: var(--color-secondary); /* Texto marrón en botón blanco */
+}
+.unete .btn:hover {
+    background-color: #f0f0f0;
 }
 
-.unete-content h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
-
-.unete-content p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/* Footer */
 footer {
-    background-color: #766153;
-    color: #eff1ed;
-    padding: 50px 0 30px 0;
+    background-color: var(--color-secondary);
 }
 
-.footer-column.info iframe {
-    width: 85%;
-    height: 200px;
-    border: 0;
-    border-radius: 8px;
-    margin-top: 15px;
+.hover-custom:hover {
+    color: var(--color-hover) !important;
 }
 
-.footer-container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
+.hover-underline:hover {
+    color: var(--color-hover) !important;
+    text-decoration: underline !important;
 }
 
-.footer-top {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 30px;
+/* --- 5. Cookie Banner (Corregido) --- */
+.cookie-banner {
+    background-color: var(--color-text); /* Fondo Marrón Oscuro (#5C4F42) */
+    color: #eff1ed; /* Texto Claro */
+    z-index: 1050; /* Por encima de todo */
+    border-top: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.footer-column h3 {
-    font-size: 22px;
-    color: #eff1ed;
-    margin-top: 0;
-    margin-bottom: 20px;
+/* Ajustes específicos para los botones dentro del banner */
+.cookie-banner .btn {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 4px; /* Un poco más cuadrados para encajar con el diseño */
 }
 
-.footer-column p,
-.footer-column li {
-    font-size: 16px;
-    line-height: 1.6;
+/* Modo oscuro: Aseguramos que el banner siga siendo visible y distinto al fondo */
+body.dark-mode .cookie-banner {
+    background-color: #2b301a; /* Verde muy oscuro */
+    border-top: 1px solid #717744;
 }
 
-.info a {
-    color: #eff1ed;
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* En modo oscuro, el botón "Aceptar" (que es btn-light) brillaría demasiado, lo atenuamos */
+body.dark-mode .cookie-banner .btn-light {
+    background-color: #bcbd8b;
+    border-color: #bcbd8b;
+    color: #373d20 !important;
 }
 
-.info a:hover {
-    color: #bcbd8b;
-    text-decoration: underline;
+body.dark-mode .cookie-banner .btn-outline-light:hover {
+    background-color: #bcbd8b;
+    border-color: #bcbd8b;
+    color: #373d20;
+
 }
 
-.quick-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.quick-links li {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-.quick-links a {
-    color: #eff1ed;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.quick-links a:hover {
-    color: #bcbd8b;
-    text-decoration: underline;
-}
-
-.social-icons {
-    display: flex;
-    gap: 16px;
-}
-
-.social-icons a {
-    color: #eff1ed;
-    display: inline-block;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #bcbd8b;
-}
-
-.footer-divider {
-    border: 0;
-    height: 1px;
-    background-color: #eff1ed;
-    opacity: 0.2;
-    margin: 30px 0;
-}
-
-.footer-bottom {
-    text-align: center;
-}
-
-.footer-bottom p {
-    margin: 0;
-    font-size: 14px;
-    color: #eff1ed;
-    opacity: 0.7;
-}
-
-/*Movil*/
-@media (max-width: 768px) {
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .banner {
-        height: 350px;
-        margin: 20px;
-    }
-
-
-    .actividades {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-    }
-
-
-    .pasado {
-        grid-template-columns: 1fr;
-        padding: 20px;
-    }
-
-
-
-    .unete {
-        padding: 50px 20px;
-        margin: 30px 20px;
-    }
-
-    .footer-top {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-column.info iframe {
-        width: 100%;
-    }
-}
-
-
-/* MODO OSCURO*/
-body,
-.unete,
-.footer {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+/* --- 6. MODO OSCURO (Overrides de Bootstrap) --- */
 
 body.dark-mode {
-    background-color: #373d20;
-    color: #eff1ed;
+    --color-bg: #373d20;
+    --color-text: #eff1ed;
+    --color-primary: #eff1ed; 
+    --color-secondary: #766153; 
+    
+    background-color: var(--color-bg);
+    color: var(--color-text);
 }
 
-body.dark-mode nav {
+body.dark-mode .navbar {
     background-color: #4a4e2d;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Ajustar títulos y enlaces */
+body.dark-mode .navbar-brand, 
+body.dark-mode .nav-link,
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
-body.dark-mode .navbar-brand,
-body.dark-mode .navbar-links li a,
-body.dark-mode .actividades article h3,
-body.dark-mode .actividades article p {
+body.dark-mode .card-title {
+    color: #eff1ed !important;
+}
+
+body.dark-mode .navbar-toggler-icon {
+    filter: invert(1); /* Hace el icono de hamburguesa blanco */
+}
+
+body.dark-mode .nav-link:hover {
+    color: var(--color-white) !important;
+}
+
+/* Tarjetas en modo oscuro */
+body.dark-mode .card {
+    background-color: transparent;
+}
+body.dark-mode .card-text {
     color: #eff1ed;
 }
-
-body.dark-mode .navbar-links li a:hover,
-body.dark-mode .actividades article a:hover {
-    color: #ffffff;
+body.dark-mode .text-muted {
+    color: var(--color-hover) !important;
+}
+body.dark-mode .link-custom {
+    color: var(--color-hover);
 }
 
-body.dark-mode .actividades article a,
-body.dark-mode .actividades article p.fecha {
-    color: #bcbd8b;
-}
-
-/* Ajustar fondos de secciones */
+/* Unete en modo oscuro */
 body.dark-mode .unete {
     background-color: #4a4e2d;
 }
 
+/* Footer en modo oscuro */
 body.dark-mode footer {
     background-color: #5C4F42;
 }
 
-/* Ajustar botones */
-body.dark-mode .navbar-button,
-body.dark-mode .unete .button {
-    background-color: #766153;
-    color: #eff1ed;
-}
-
-body.dark-mode .navbar-button:hover,
-body.dark-mode .unete .button:hover {
-    background-color: #8a7565;
-}
-
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #5C4F42;
-    color: #eff1ed;
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    z-index: 1000;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cookie-banner p {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    flex-grow: 1;
-}
-
-.cookie-banner button {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px 25px;
-    font-size: 16px;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    flex-shrink: 0;
-}
-
-#accept-cookies {
-    background-color: #766153;
-    color: #ffffff;
-    border: 2px solid #766153;
-}
-
-#accept-cookies:hover {
-    background-color: #8a7565;
-    border-color: #8a7565;
-}
-
-#reject-cookies {
-    background-color: transparent;
-    color: #eff1ed;
-    border: 2px solid #eff1ed;
-}
-
-#reject-cookies:hover {
-    background-color: #eff1ed;
-    color: #5C4F42;
-}
-
+/* Cookies en modo oscuro */
 body.dark-mode .cookie-banner {
     background-color: #4a4e2d;
-    color: #eff1ed;
 }
-
-body.dark-mode #reject-cookies {
+body.dark-mode .btn-outline-custom {
     color: #eff1ed;
     border-color: #eff1ed;
 }
-
-body.dark-mode #reject-cookies:hover {
+body.dark-mode .btn-outline-custom:hover {
     background-color: #eff1ed;
-    color: #4a4e2d;
-}
-
-@media (max-width: 768px) {
-    .cookie-banner {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-        gap: 15px;
-    }
-
-    .cookie-banner p {
-        flex-grow: 0;
-        margin-bottom: 5px;
-    }
-
-    .cookie-banner button {
-        width: 100%;
-        max-width: 300px;
-    }
+    color: #373d20;
 }
