@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Página principal de la asociación cultural de cameron, Camarillas">
+    <meta name="description" content="Página principal de la asociación cultural de cameron, Camarillas">
     <title>Asociación cultural</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/unete.css">
     <script src="https://unpkg.com/feather-icons"></script>
@@ -15,125 +16,175 @@
     <meta name="color-scheme" content="light dark">
     <script src="../js/cookies.js" defer></script>
 </head>
+
 <body>
-    <div id="cookie-banner" class="cookie-banner">
-        <p>Usamos cookies para analizar el tráfico (Google Analytics). ¿Aceptas?</p>
-        <button id="accept-cookies">Aceptar</button>
-        <button id="reject-cookies">Rechazar</button>
+    <div id="cookie-banner" class="fixed-bottom bg-dark text-white p-3 shadow-lg" style="z-index: 9999;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <p class="mb-0 text-center text-md-start">
+                Usamos cookies para analizar el tráfico (Google Analytics). ¿Aceptas?
+            </p>
+            <div class="d-flex gap-2">
+                <button id="accept-cookies" class="btn btn-primary btn-sm px-4 fw-bold"
+                    aria-label="Aceptar todas las cookies">Aceptar</button>
+                <button id="reject-cookies" class="btn btn-outline-light btn-sm px-4 fw-bold"
+                    aria-label="Rechazar cookies no esenciales">Rechazar</button>
+            </div>
+        </div>
     </div>
     <header>
-        <nav>
-            <a href="../" class="navbar-brand">
-                <img src="../media/logo.png" alt="Logotipo Asociación">
-                Asociación cultural Cameron
-            </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3 px-4">
+            <div class="container-fluid">
+                <a href="../index.html" class="navbar-brand d-flex align-items-center text-dark fs-4">
+                    <img src="../media/logo.png" alt="Logotipo Asociación" height="30" class="me-2">
+                    Asociación cultural Cameron
+                </a>
 
-            <ul class="navbar-links">
-                <li><a href="../">Inicio</a></li>
-                <li><a href="/actividades">Actividades</a></li>
-                <li><a href="/historia">Historia</a></li>
-                <li><a href="/sobre">Sobre camerón</a></li>
-            </ul>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <a href="./unete" class="navbar-button">Únete</a>
-
-            <a id="icono-modo-oscuro"><i data-feather="moon"></i></a>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold"
+                                href="/actividades/index.html">Actividades</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold"
+                                href="/historia/index.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="/sobre/index.html">Sobre
+                                camerón</a></li>
+                        <li class="nav-item">
+                            <a href="./index.html" class="btn btn-primary text-white fw-bold px-4 py-2">Únete</a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="icono-modo-oscuro" class="nav-link btn btn-link border-0 p-2"
+                                aria-label="Activar modo oscuro"><i data-feather="moon"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
     <main>
-        <div class="form-container">
-            <h1>Únete a Camerón</h1>
-            <p>Rellena este formulario para unirte a la asociación por 12€ al mes. Te contactaremos para acabar la inscripción.</p>
-            <form id="formulario">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="apellidos">Apellidos</label>
-                        <input type="text" id="apellidos" name="apellidos" placeholder="Tus apellidos" required>
-                    </div>
-                </div>
+        <div class="container my-5" style="max-width: 800px;">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold">Únete a Camerón</h1>
+                <p class="lead">Rellena este formulario para unirte a la asociación por 12€ al mes. Te contactaremos
+                    para acabar la inscripción.</p>
+            </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="email@ejemplo.com" required>
+            <div class="card shadow-sm border-0 p-4">
+                <form id="formulario">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="nombre" class="form-label fw-bold">Nombre <span class="text-danger"
+                                    aria-hidden="true">*</span></label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre"
+                                required aria-required="true">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="apellidos" class="form-label fw-bold">Apellidos <span class="text-danger"
+                                    aria-hidden="true">*</span></label>
+                            <input type="text" class="form-control" id="apellidos" name="apellidos"
+                                placeholder="Tus apellidos" required aria-required="true">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="600 123 456" required>
-                    </div>
-                </div>
 
-                <div class="form-row">
-                    <div class="form-group full-width">
-                        <label for="comentarios">Comentarios <span class="optional">(Opcional)</span></label>
-                        <textarea id="comentarios" name="comentarios"
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label fw-bold">Email <span class="text-danger"
+                                    aria-hidden="true">*</span></label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="email@ejemplo.com" required aria-required="true">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="telefono" class="form-label fw-bold">Teléfono <span class="text-danger"
+                                    aria-hidden="true">*</span></label>
+                            <input type="tel" class="form-control" id="telefono" name="telefono"
+                                placeholder="600 123 456" required aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="comentarios" class="form-label fw-bold">Comentarios <span
+                                class="text-muted fw-normal small">(Opcional)</span></label>
+                        <textarea class="form-control" id="comentarios" name="comentarios" rows="4"
                             placeholder="Cuéntanos por qué quieres unirte..."></textarea>
                     </div>
-                </div>
 
-                <button type="submit" id="submit-btn">Enviar Solicitud de Inscripción</button>
-                <p id="politica-privacidad">Al envíar el formulario, aceptas nuestra <a href="../privacidad">Política de privacidad</a></p>
-            </form>
-            <div id="message" class="message"></div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" id="submit-btn" class="btn btn-primary btn-lg fw-bold">Enviar Solicitud de
+                            Inscripción</button>
+                    </div>
+                </form>
+                <p id="politica-privacidad" class="text-center mt-3 small text-muted">Al enviar el formulario, aceptas
+                    nuestra <a href="../privacidad/index.html" class="link-primary">Política de privacidad</a></p>
+                <div id="message" class="message mt-3 text-center" aria-live="polite"></div>
+            </div>
         </div>
     </main>
 
-    <footer>
-        <div class="footer-container">
-
-            <div class="footer-top">
-
-                <div class="footer-column info">
-                    <h3>Asociación cultural Camerón</h3>
-                    <p>
+    <footer class="text-white py-5 mt-5" style="background-color: #766153;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Asociación cultural Camerón</h3>
+                    <p class="small">
                         D. Manuel 7, C. de Galindo,<br>
                         44155 Camarillas, Teruel<br>
-                        <a href="mailto:junta@cameron.org">junta@cameron.org</a>
+                        <a href="mailto:junta@cameron.org"
+                            class="text-white text-decoration-none hover-underline">junta@cameron.org</a>
                     </p>
                 </div>
 
-                <div class="footer-column quick-links">
-                    <h3>Accesos directos</h3>
-                    <ul>
-                        <li><a href="/actividades">Actividades</a></li>
-                        <li><a href="/historia">Historia</a></li>
-                        <li><a href="/sobre">Sobre Camerón</a></li>
-                        <li><a href="#">Socios</a></li>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Accesos directos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/actividades/index.html"
+                                class="text-white text-decoration-none hover-underline">Actividades</a></li>
+                        <li class="mb-2"><a href="/historia/index.html"
+                                class="text-white text-decoration-none hover-underline">Historia</a></li>
+                        <li class="mb-2"><a href="/sobre/index.html"
+                                class="text-white text-decoration-none hover-underline">Sobre
+                                Camerón</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none hover-underline">Socios</a>
+                        </li>
                     </ul>
                 </div>
 
-                <div class="footer-column social-connect">
-                    <h3>Síguenos</h3>
-                    <div class="social-icons">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Síguenos</h3>
+                    <div class="d-flex gap-3">
                         <a href="https://www.facebook.com/p/Asociaci%C3%B3n-Cultural-Camer%C3%B3n-100064575526438"
-                            aria-label="Visita nuestro Facebook" target="_blank">
+                            aria-label="Visita nuestro Facebook" target="_blank" class="text-white">
                             <i data-feather="facebook"></i>
                         </a>
                         <a href="https://www.instagram.com/cameroncamarillas/" target="_blank"
-                            aria-label="Visita nuestro Instagram">
+                            aria-label="Visita nuestro Instagram" class="text-white">
                             <i data-feather="instagram"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <hr class="footer-divider">
 
-            <div class="footer-bottom">
-                <p>&copy;2025 Asociación cultural Camerón. Camarillas, Teruel</p>
+            <hr class="my-4 opacity-25">
+
+            <div class="text-center small opacity-75">
+                <p class="mb-0">&copy;2025 Asociación cultural Camerón. Camarillas, Teruel</p>
             </div>
-
         </div>
     </footer>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 <script>
     feather.replace()
 </script>
 <!-- Scripts para dar funcionalidad al formulario -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="../js/formulario-jsmail.js"></script>
+
 </html>

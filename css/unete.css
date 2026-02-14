@@ -1,5 +1,5 @@
-h1{
-    color: #373d20;
+h1 {
+    color: var(--secondary-color);
 }
 
 .form-container {
@@ -69,7 +69,7 @@ textarea {
 button {
     width: 100%;
     padding: 16px;
-    background-color: #6d5d52;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
@@ -118,11 +118,11 @@ button:active {
 }
 
 #politica-privacidad a {
-    color: #5C4F42;
+    color: var(--text-main);
 }
 
 #politica-privacidad a:hover {
-    color: #bcbd8b;
+    color: var(--accent-color);
 }
 
 /*Móvil*/
@@ -139,57 +139,57 @@ button:active {
 }
 
 /* Modo oscuro */
-body.dark-mode {
-    background-color: #373d20;
-    color: #eff1ed;
+[data-bs-theme="dark"] body {
+    background-color: var(--dark-bg);
+    color: var(--light-bg);
 }
 
-body.dark-mode input,
-body.dark-mode textarea {
-    border: 1px solid #5C4F42;
-    color: #eff1ed;
-    background-color: #4a4e2d;
+[data-bs-theme="dark"] input,
+[data-bs-theme="dark"] textarea {
+    border: 1px solid var(--text-main);
+    color: var(--light-bg);
+    background-color: var(--dark-nav-bg);
 }
 
-body.dark-mode input:focus,
-body.dark-mode textarea:focus {
-    border-color: #bcbd8b;
-    background-color: #5C4F42;
+[data-bs-theme="dark"] input:focus,
+[data-bs-theme="dark"] textarea:focus {
+    border-color: var(--accent-color);
+    background-color: var(--text-main);
 }
 
-body.dark-mode .optional {
-    color: #bcbd8b;
+[data-bs-theme="dark"] .optional {
+    color: var(--accent-color);
 }
 
-body.dark-mode .message.success {
+[data-bs-theme="dark"] .message.success {
     background: #1a3a22;
     color: #a8d7b3;
     border: 1px solid #2b6a3e;
 }
 
-body.dark-mode .message.error {
+[data-bs-theme="dark"] .message.error {
     background: #441c23;
     color: #f0b6be;
     border: 1px solid #721c24;
 }
 
-body.dark-mode #politica-privacidad a {
-    color: #bcbd8b;
+[data-bs-theme="dark"] #politica-privacidad a {
+    color: var(--accent-color);
 }
 
-body.dark-mode #politica-privacidad a:hover {
+[data-bs-theme="dark"] #politica-privacidad a:hover {
     color: #ffffff;
 }
 
-body.dark-mode button {
-    background-color: #766153;
-    color: #eff1ed;
+[data-bs-theme="dark"] button {
+    background-color: var(--primary-color);
+    color: var(--light-bg);
 }
 
-body.dark-mode button:hover {
+[data-bs-theme="dark"] button:hover {
     background-color: #8a7565;
 }
 
-body.dark-mode button:active {
+[data-bs-theme="dark"] button:active {
     background-color: #6a584b;
 }
