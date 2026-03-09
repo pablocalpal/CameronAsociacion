@@ -48,16 +48,15 @@
                     <ul class="navbar-nav align-items-center gap-3">
                         <li class="nav-item"><a class="nav-link text-dark fw-bold" href="./index.html">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link text-dark fw-bold"
-                                href="/actividades/index.html">Actividades</a>
+                                href="./actividades/index.html">Actividades</a>
                         </li>
                         <li class="nav-item"><a class="nav-link text-dark fw-bold"
-                                href="/historia/index.html">Historia</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="/sobre/index.html">Sobre
+                                href="./historia/index.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="./sobre/index.html">Sobre
                                 camerón</a></li>
                         <li class="nav-item">
                             <a href="./unete/index.html" class="btn btn-primary text-white fw-bold px-4 py-2">Únete</a>
                         </li>
-                        <li class="nav-item">
                         <li class="nav-item">
                             <button id="icono-modo-oscuro" class="nav-link btn btn-link border-0 p-2"
                                 aria-label="Activar modo oscuro"><i data-feather="moon"></i></button>
@@ -92,19 +91,26 @@
 
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img src="./media/actividad_teatro.jpg" class="card-img-top"
-                            alt="Personas actuando en las calles del pueblo" style="height: 220px; object-fit: cover;">
-                        <div class="card-body">
-                            <h3 class="card-title h4">Tour histórico teatralizado</h3>
-                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 15
-                                Diciembre, 2025</p>
-                            <p class="card-text">Se podrá seguir la historia de Camarillas interpretada en las calles.
-                            </p>
-                            <a href="#" class="btn btn-link px-0 text-decoration-none fw-bold"
-                                style="color: #766153;">Más sobre la actividad</a>
+                    <a href="./actividades/tour-historico-teatralizado/index.html"
+                        class="text-decoration-none text-reset">
+                        <div class="card h-100 border-0 shadow-sm" style="cursor: pointer; transition: transform 0.2s;"
+                            onmouseover="this.style.transform='translateY(-4px)'"
+                            onmouseout="this.style.transform='none'">
+                            <img src="./media/actividad_teatro.jpg" class="card-img-top"
+                                alt="Personas actuando en las calles del pueblo"
+                                style="height: 220px; object-fit: cover;">
+                            <div class="card-body">
+                                <h3 class="card-title h4">Tour histórico teatralizado</h3>
+                                <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 15
+                                    Diciembre, 2025</p>
+                                <p class="card-text">Se podrá seguir la historia de Camarillas interpretada en las
+                                    calles.
+                                </p>
+                                <span class="btn btn-link px-0 text-decoration-none fw-bold" style="color: #766153;">Más
+                                    sobre la actividad →</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-md-4">
@@ -116,8 +122,8 @@
                             <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 10 Junio,
                                 2026</p>
                             <p class="card-text">Se presentará documental con foco principal en nuestro pueblo.</p>
-                            <a href="#" class="btn btn-link px-0 text-decoration-none fw-bold"
-                                style="color: #766153;">Más sobre la actividad</a>
+                            <a href="./actividades/index.html" class="btn btn-link px-0 text-decoration-none fw-bold"
+                                style="color: #766153;">Más sobre la actividad →</a>
                         </div>
                     </div>
                 </div>
@@ -133,8 +139,8 @@
                                 Agosto, 2026</p>
                             <p class="card-text">Presentación del libro “En busca de La Ferte”, un estudio del
                                 patrimonio abandonado de la provincia de Teruel.</p>
-                            <a href="#" class="btn btn-link px-0 text-decoration-none fw-bold"
-                                style="color: #766153;">Más sobre la actividad</a>
+                            <a href="./actividades/index.html" class="btn btn-link px-0 text-decoration-none fw-bold"
+                                style="color: #766153;">Más sobre la actividad →</a>
                         </div>
                     </div>
                 </div>
@@ -215,14 +221,15 @@
                 <div class="col-md-4">
                     <h3 class="h5 mb-3 fw-bold font-playfair">Accesos directos</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="/actividades/index.html"
+                        <li class="mb-2"><a href="./actividades/index.html"
                                 class="text-white text-decoration-none hover-underline">Actividades</a></li>
-                        <li class="mb-2"><a href="/historia/index.html"
+                        <li class="mb-2"><a href="./historia/index.html"
                                 class="text-white text-decoration-none hover-underline">Historia</a></li>
-                        <li class="mb-2"><a href="/sobre/index.html"
+                        <li class="mb-2"><a href="./sobre/index.html"
                                 class="text-white text-decoration-none hover-underline">Sobre
                                 Camerón</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none hover-underline">Socios</a>
+                        <li class="mb-2"><a href="./unete/index.html"
+                                class="text-white text-decoration-none hover-underline">Únete</a>
                         </li>
                     </ul>
                 </div>

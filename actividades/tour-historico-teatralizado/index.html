@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Tour histórico teatralizado por las calles de Camarillas — Asociación Cultural Camerón">
+    <title>Tour histórico teatralizado — Asociación cultural Camerón</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/main.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" type="image/x-icon" href="../../media/logo.png">
+    <script src="../../js/modo-oscuro.js"></script>
+    <script src="../../js/cookies.js" defer></script>
+    <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+    <div id="cookie-banner" class="fixed-bottom bg-dark text-white p-3 shadow-lg" style="z-index: 9999;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <p class="mb-0 text-center text-md-start">
+                Usamos cookies para analizar el tráfico (Google Analytics). ¿Aceptas?
+            </p>
+            <div class="d-flex gap-2">
+                <button id="accept-cookies" class="btn btn-primary btn-sm px-4 fw-bold"
+                    aria-label="Aceptar todas las cookies">Aceptar</button>
+                <button id="reject-cookies" class="btn btn-outline-light btn-sm px-4 fw-bold"
+                    aria-label="Rechazar cookies no esenciales">Rechazar</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3 px-4">
+            <div class="container-fluid">
+                <a href="../../index.html" class="navbar-brand d-flex align-items-center text-dark fs-4">
+                    <img src="../../media/logo.png" alt="Logotipo Asociación" height="30" class="me-2">
+                    Asociación cultural Cameron
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="../../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="../index.html">Actividades</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold"
+                                href="../../historia/index.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="../../sobre/index.html">Sobre
+                                camerón</a></li>
+                        <li class="nav-item">
+                            <a href="../../unete/index.html"
+                                class="btn btn-primary text-white fw-bold px-4 py-2">Únete</a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="icono-modo-oscuro" class="nav-link btn btn-link border-0 p-2"
+                                aria-label="Activar modo oscuro"><i data-feather="moon"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <!-- Hero de la actividad -->
+        <section
+            class="position-relative text-center text-white d-flex align-items-center justify-content-center mx-4 my-5"
+            style="height: 400px; overflow: hidden; border-radius: 12px;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.55; z-index: 1;">
+            </div>
+            <!-- wp:post-thumbnail — En WordPress esta imagen vendrá de la imagen destacada del post -->
+            <img src="../../media/actividad_teatro.jpg" alt="Tour histórico teatralizado en Camarillas"
+                class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
+            <div class="position-relative z-2 p-3 p-md-5 col-11 col-md-10 col-lg-8">
+                <!-- wp:post-title -->
+                <h1 class="display-5 fw-bold mb-3">Tour histórico teatralizado</h1>
+                <!-- /wp:post-title -->
+                <div class="d-flex justify-content-center gap-4 flex-wrap">
+                    <!-- wp:meta-fields — Estos campos serán custom fields en WordPress -->
+                    <span><i data-feather="calendar" class="me-1"></i> 15 Diciembre, 2025</span>
+                    <span><i data-feather="map-pin" class="me-1"></i> Plaza Mayor, Camarillas</span>
+                    <span><i data-feather="clock" class="me-1"></i> 11:00</span>
+                    <span><i data-feather="tag" class="me-1"></i> Entrada libre</span>
+                    <!-- /wp:meta-fields -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Breadcrumb -->
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../../index.html" class="text-decoration-none"
+                            style="color: var(--primary-color);">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none"
+                            style="color: var(--primary-color);">Actividades</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tour histórico teatralizado</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Contenido de la actividad -->
+        <!-- wp:post-content — En WordPress este será el contenido del editor de bloques -->
+        <article class="container my-4" style="max-width: 850px;">
+
+            <div style="text-align: justify; line-height: 1.8;">
+                <p class="lead mb-4">Recorre las calles de Camarillas mientras actores locales interpretan escenas
+                    históricas del pueblo. Un viaje en el tiempo que conecta pasado y presente a través del teatro
+                    callejero.</p>
+
+                <h2 class="h4 fw-bold mt-5 mb-3">Sobre la actividad</h2>
+                <p>El tour histórico teatralizado es una de las actividades más queridas de la asociación. Durante
+                    aproximadamente dos horas, grupos de vecinos y actores aficionados recrean momentos clave de la
+                    historia de Camarillas en los escenarios reales donde ocurrieron.</p>
+                <p>El recorrido comienza en la Plaza Mayor del pueblo, donde se narra la fundación medieval de
+                    Camarillas, y continúa por las calles empedradas hasta llegar a la iglesia parroquial. En cada
+                    parada, los actores representan una escena diferente: desde la vida cotidiana de los pastores
+                    trashumantes hasta las dificultades de la posguerra.</p>
+
+                <h2 class="h4 fw-bold mt-5 mb-3">Programa</h2>
+                <ul>
+                    <li><strong>11:00</strong> – Punto de encuentro en la Plaza Mayor</li>
+                    <li><strong>11:15</strong> – Primera escena: "Los orígenes de Camarillas"</li>
+                    <li><strong>11:45</strong> – Paseo hasta la Calle Mayor con parada dramatizada</li>
+                    <li><strong>12:15</strong> – Escena en la iglesia: "La fe del pueblo"</li>
+                    <li><strong>12:45</strong> – Final del recorrido y aperitivo en la plaza</li>
+                </ul>
+
+                <h2 class="h4 fw-bold mt-5 mb-3">Información práctica</h2>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm p-3">
+                            <div class="card-body">
+                                <p class="mb-2"><i data-feather="calendar" class="me-2"
+                                        style="color: var(--primary-color);"></i><strong>Fecha:</strong> 15 de
+                                    diciembre de 2025</p>
+                                <p class="mb-2"><i data-feather="clock" class="me-2"
+                                        style="color: var(--primary-color);"></i><strong>Hora:</strong> 11:00</p>
+                                <p class="mb-0"><i data-feather="users" class="me-2"
+                                        style="color: var(--primary-color);"></i><strong>Aforo:</strong> Sin límite</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm p-3">
+                            <div class="card-body">
+                                <p class="mb-2"><i data-feather="map-pin" class="me-2"
+                                        style="color: var(--primary-color);"></i><strong>Lugar:</strong> Plaza Mayor,
+                                    Camarillas</p>
+                                <p class="mb-2"><i data-feather="tag" class="me-2"
+                                        style="color: var(--primary-color);"></i><strong>Precio:</strong> Gratuito</p>
+                                <p class="mb-0"><i data-feather="info" class="me-2"
+                                        style="color: var(--primary-color);"></i><strong>Nota:</strong> Se recomienda
+                                    calzado cómodo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Esta actividad está abierta a todo el público, tanto socios como no socios de la asociación. Los
+                    niños y niñas son especialmente bienvenidos. En caso de lluvia, la actividad se trasladará al salón
+                    social del pueblo.</p>
+            </div>
+        </article>
+        <!-- /wp:post-content -->
+
+        <!-- Más actividades -->
+        <section class="container my-5 pt-4" style="max-width: 850px;">
+            <hr class="mb-5 opacity-25">
+            <h2 class="h4 fw-bold mb-4">Otras actividades</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="../../media/presentacion_documental.jpg" class="card-img-top"
+                            alt="Presentación de un documental" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Documental España Vaciada</h3>
+                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 10 Junio,
+                                2026</p>
+                            <a href="../index.html" class="btn btn-link px-0 text-decoration-none fw-bold"
+                                style="color: var(--primary-color);">Ver actividad →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="../../media/presentacion_libro.jpg" class="card-img-top"
+                            alt="Presentación de un libro" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Presentación libro "En busca de La Ferte"</h3>
+                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 12
+                                Agosto, 2026</p>
+                            <a href="../index.html" class="btn btn-link px-0 text-decoration-none fw-bold"
+                                style="color: var(--primary-color);">Ver actividad →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-white py-5 mt-5" style="background-color: #766153;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Asociación cultural Camerón</h3>
+                    <p class="small">
+                        D. Manuel 7, C. de Galindo,<br>
+                        44155 Camarillas, Teruel<br>
+                        <a href="mailto:junta@cameron.org"
+                            class="text-white text-decoration-none hover-underline">junta@cameron.org</a>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Accesos directos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../index.html"
+                                class="text-white text-decoration-none hover-underline">Actividades</a></li>
+                        <li class="mb-2"><a href="../../historia/index.html"
+                                class="text-white text-decoration-none hover-underline">Historia</a></li>
+                        <li class="mb-2"><a href="../../sobre/index.html"
+                                class="text-white text-decoration-none hover-underline">Sobre
+                                Camerón</a></li>
+                        <li class="mb-2"><a href="../../unete/index.html"
+                                class="text-white text-decoration-none hover-underline">Únete</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Síguenos</h3>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.facebook.com/p/Asociaci%C3%B3n-Cultural-Camer%C3%B3n-100064575526438"
+                            aria-label="Visita nuestro Facebook" target="_blank" class="text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/cameroncamarillas/" target="_blank"
+                            aria-label="Visita nuestro Instagram" class="text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4 opacity-25">
+
+            <div class="text-center small opacity-75">
+                <p class="mb-0">&copy;2025 Asociación cultural Camerón. Camarillas, Teruel</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+
+</html>

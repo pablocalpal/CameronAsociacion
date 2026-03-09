@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Actividades organizadas por la Asociación Cultural Camerón de Camarillas, Teruel">
+    <title>Actividades — Asociación cultural Camerón</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" type="image/x-icon" href="../media/logo.png">
+    <script src="../js/modo-oscuro.js"></script>
+    <script src="../js/cookies.js" defer></script>
+    <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+    <div id="cookie-banner" class="fixed-bottom bg-dark text-white p-3 shadow-lg" style="z-index: 9999;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <p class="mb-0 text-center text-md-start">
+                Usamos cookies para analizar el tráfico (Google Analytics). ¿Aceptas?
+            </p>
+            <div class="d-flex gap-2">
+                <button id="accept-cookies" class="btn btn-primary btn-sm px-4 fw-bold"
+                    aria-label="Aceptar todas las cookies">Aceptar</button>
+                <button id="reject-cookies" class="btn btn-outline-light btn-sm px-4 fw-bold"
+                    aria-label="Rechazar cookies no esenciales">Rechazar</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3 px-4">
+            <div class="container-fluid">
+                <a href="../index.html" class="navbar-brand d-flex align-items-center text-dark fs-4">
+                    <img src="../media/logo.png" alt="Logotipo Asociación" height="30" class="me-2">
+                    Asociación cultural Cameron
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="./index.html">Actividades</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold"
+                                href="../historia/index.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="../sobre/index.html">Sobre
+                                camerón</a></li>
+                        <li class="nav-item">
+                            <a href="../unete/index.html" class="btn btn-primary text-white fw-bold px-4 py-2">Únete</a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="icono-modo-oscuro" class="nav-link btn btn-link border-0 p-2"
+                                aria-label="Activar modo oscuro"><i data-feather="moon"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <!-- Hero -->
+        <section
+            class="position-relative text-center text-white d-flex align-items-center justify-content-center mx-4 my-5"
+            style="height: 350px; overflow: hidden; border-radius: 12px;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.6; z-index: 1;"></div>
+            <img src="../media/actividad_teatro.jpg" alt="Actividades en Camarillas"
+                class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
+            <div class="position-relative z-2 p-3 p-md-5 col-11 col-md-10 col-lg-8">
+                <h1 class="display-5 fw-bold mb-3">Nuestras Actividades</h1>
+                <p class="lead">Desde talleres culturales hasta fiestas patronales, organizamos eventos que dan vida a
+                    Camarillas durante todo el año.</p>
+            </div>
+        </section>
+
+        <!-- Próximas Actividades -->
+        <section class="container my-5">
+            <h2 class="text-center mb-4">Próximas actividades</h2>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <a href="./tour-historico-teatralizado/index.html" class="text-decoration-none text-reset">
+                        <div class="card h-100 border-0 shadow-sm" style="cursor: pointer; transition: transform 0.2s;"
+                            onmouseover="this.style.transform='translateY(-4px)'"
+                            onmouseout="this.style.transform='none'">
+                            <img src="../media/actividad_teatro.jpg" class="card-img-top"
+                                alt="Personas actuando en las calles del pueblo"
+                                style="height: 220px; object-fit: cover;">
+                            <div class="card-body">
+                                <h3 class="card-title h4">Tour histórico teatralizado</h3>
+                                <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 15
+                                    Diciembre, 2025</p>
+                                <p class="card-text">Recorre las calles de Camarillas mientras actores locales
+                                    interpretan escenas históricas del pueblo. Un viaje en el tiempo que conecta pasado
+                                    y
+                                    presente a través del teatro callejero.</p>
+                                <p class="card-text text-muted small"><i data-feather="map-pin" class="me-1"></i> Plaza
+                                    Mayor, Camarillas</p>
+                                <p class="card-text text-muted small"><i data-feather="clock" class="me-1"></i> 11:00 —
+                                    Entrada libre</p>
+                                <span class="btn btn-link px-0 text-decoration-none fw-bold"
+                                    style="color: var(--primary-color);">Ver actividad →</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="../media/presentacion_documental.jpg" class="card-img-top"
+                            alt="Presentación de un documental" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title h4">Documental España Vaciada</h3>
+                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 10
+                                Junio, 2026</p>
+                            <p class="card-text">Proyección del documental que pone el foco en la despoblación rural
+                                con especial atención a nuestro pueblo. Tras la proyección tendrá lugar un coloquio con
+                                el director.</p>
+                            <p class="card-text text-muted small"><i data-feather="map-pin" class="me-1"></i> Salón
+                                social, Camarillas</p>
+                            <p class="card-text text-muted small"><i data-feather="clock" class="me-1"></i> 19:00 —
+                                Entrada libre</p>
+                            <span class="text-muted small fw-bold">Próximamente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="../media/presentacion_libro.jpg" class="card-img-top"
+                            alt="Personas atendiendo la presentación de un libro"
+                            style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title h4">Presentación libro "En busca de La Ferte"</h3>
+                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 12
+                                Agosto, 2026</p>
+                            <p class="card-text">Presentación del estudio sobre el patrimonio abandonado de la
+                                provincia de Teruel. El autor compartirá sus hallazgos y fotografías inéditas de la
+                                investigación.</p>
+                            <p class="card-text text-muted small"><i data-feather="map-pin" class="me-1"></i> Salón
+                                social, Camarillas</p>
+                            <p class="card-text text-muted small"><i data-feather="clock" class="me-1"></i> 18:00 —
+                                Entrada libre</p>
+                            <span class="text-muted small fw-bold">Próximamente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actividades pasadas -->
+        <section class="container my-5">
+            <h2 class="text-center mb-4">Actividades pasadas</h2>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Fiestas Patronales 2024</h3>
+                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 14–17
+                                Agosto, 2024</p>
+                            <p class="card-text">Cuatro días de celebración con verbenas, comidas populares, juegos
+                                tradicionales y la procesión en honor a la Virgen del Campo. Un éxito de convivencia
+                                con más de 200 asistentes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Jornada de limpieza del monte</h3>
+                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 22
+                                Abril, 2024</p>
+                            <p class="card-text">Voluntarios de la asociación y vecinos se unieron para limpiar y
+                                acondicionar los senderos del monte que rodea el pueblo. Se recogieron más de 50 bolsas
+                                de residuos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Taller de repostería tradicional</h3>
+                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 3
+                                Marzo, 2024</p>
+                            <p class="card-text">Las vecinas más veteranas del pueblo compartieron las recetas de
+                                tortas, mantecados y otros dulces tradicionales de Camarillas con las generaciones más
+                                jóvenes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Exposición fotográfica "Camarillas en el recuerdo"</h3>
+                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 15
+                                Agosto, 2023</p>
+                            <p class="card-text">Recopilación de fotografías antiguas del pueblo cedidas por familias
+                                del lugar. La muestra incluyó imágenes desde los años 40 hasta los 90 y estuvo
+                                expuesta durante las fiestas patronales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="container my-5">
+            <div class="p-5 text-center text-white rounded shadow-sm" style="background-color: #717744;">
+                <h2 class="display-6 fw-bold mb-3">¿Quieres proponer una actividad?</h2>
+                <p class="fs-5 mb-4 mx-auto" style="max-width: 700px;">Si tienes una idea para un evento o taller,
+                    escríbenos. Estamos abiertos a nuevas propuestas de socios y vecinos.</p>
+                <a href="../unete/index.html" class="btn btn-primary btn-lg px-4 py-3 fw-bold shadow-sm">Contáctanos</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-white py-5 mt-5" style="background-color: #766153;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Asociación cultural Camerón</h3>
+                    <p class="small">
+                        D. Manuel 7, C. de Galindo,<br>
+                        44155 Camarillas, Teruel<br>
+                        <a href="mailto:junta@cameron.org"
+                            class="text-white text-decoration-none hover-underline">junta@cameron.org</a>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Accesos directos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./index.html"
+                                class="text-white text-decoration-none hover-underline">Actividades</a></li>
+                        <li class="mb-2"><a href="../historia/index.html"
+                                class="text-white text-decoration-none hover-underline">Historia</a></li>
+                        <li class="mb-2"><a href="../sobre/index.html"
+                                class="text-white text-decoration-none hover-underline">Sobre
+                                Camerón</a></li>
+                        <li class="mb-2"><a href="../unete/index.html"
+                                class="text-white text-decoration-none hover-underline">Únete</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Síguenos</h3>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.facebook.com/p/Asociaci%C3%B3n-Cultural-Camer%C3%B3n-100064575526438"
+                            aria-label="Visita nuestro Facebook" target="_blank" class="text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/cameroncamarillas/" target="_blank"
+                            aria-label="Visita nuestro Instagram" class="text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4 opacity-25">
+
+            <div class="text-center small opacity-75">
+                <p class="mb-0">&copy;2025 Asociación cultural Camerón. Camarillas, Teruel</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+
+</html>

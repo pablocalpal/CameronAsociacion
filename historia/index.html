@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Historia de Camarillas, un pueblo con siglos de tradición en la provincia de Teruel">
+    <title>Historia — Asociación cultural Camerón</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" type="image/x-icon" href="../media/logo.png">
+    <script src="../js/modo-oscuro.js"></script>
+    <script src="../js/cookies.js" defer></script>
+    <meta name="color-scheme" content="light dark">
+    <style>
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background-color: var(--primary-color);
+            border: 3px solid var(--light-bg);
+            border-radius: 50%;
+        }
+
+        [data-bs-theme="dark"] .timeline-item::before {
+            border-color: var(--dark-bg);
+        }
+
+        .timeline-year {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        [data-bs-theme="dark"] .timeline-year {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cookie-banner" class="fixed-bottom bg-dark text-white p-3 shadow-lg" style="z-index: 9999;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <p class="mb-0 text-center text-md-start">
+                Usamos cookies para analizar el tráfico (Google Analytics). ¿Aceptas?
+            </p>
+            <div class="d-flex gap-2">
+                <button id="accept-cookies" class="btn btn-primary btn-sm px-4 fw-bold"
+                    aria-label="Aceptar todas las cookies">Aceptar</button>
+                <button id="reject-cookies" class="btn btn-outline-light btn-sm px-4 fw-bold"
+                    aria-label="Rechazar cookies no esenciales">Rechazar</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3 px-4">
+            <div class="container-fluid">
+                <a href="../index.html" class="navbar-brand d-flex align-items-center text-dark fs-4">
+                    <img src="../media/logo.png" alt="Logotipo Asociación" height="30" class="me-2">
+                    Asociación cultural Cameron
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold"
+                                href="../actividades/index.html">Actividades</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="./index.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark fw-bold" href="../sobre/index.html">Sobre
+                                camerón</a></li>
+                        <li class="nav-item">
+                            <a href="../unete/index.html" class="btn btn-primary text-white fw-bold px-4 py-2">Únete</a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="icono-modo-oscuro" class="nav-link btn btn-link border-0 p-2"
+                                aria-label="Activar modo oscuro"><i data-feather="moon"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <!-- Hero -->
+        <section
+            class="position-relative text-center text-white d-flex align-items-center justify-content-center mx-4 my-5"
+            style="height: 350px; overflow: hidden; border-radius: 12px;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.6; z-index: 1;"></div>
+            <img src="../media/virgen-del-campo.jpg" alt="Santuario Virgen del Campo"
+                class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" style="filter: grayscale(60%);">
+            <div class="position-relative z-2 p-3 p-md-5 col-11 col-md-10 col-lg-8">
+                <h1 class="display-5 fw-bold mb-3">Historia de Camarillas</h1>
+                <p class="lead">Siglos de tradición, memoria y vida en un rincón de Teruel.</p>
+            </div>
+        </section>
+
+        <!-- Introducción -->
+        <section class="container my-5" style="max-width: 850px;">
+            <div style="text-align: justify; line-height: 1.8;">
+                <p class="mb-3">Camarillas es un pequeño municipio situado en la comarca del Altiplano de Teruel, a
+                    más de 1.200 metros de altitud. Sus orígenes se remontan a la Edad Media, cuando el asentamiento
+                    comenzó a crecer bajo la influencia de la reconquista cristiana en el territorio turolense.</p>
+                <p class="mb-3">A lo largo de los siglos, el pueblo ha vivido épocas de esplendor ligadas a la
+                    ganadería y la agricultura de secano, y ha sabido mantener su identidad a pesar del éxodo rural
+                    que marcó la segunda mitad del siglo XX. Hoy Camarillas es un ejemplo vivo de resistencia y
+                    cariño hacia las raíces.</p>
+            </div>
+        </section>
+
+        <!-- Imagen + Texto -->
+        <section class="container my-5">
+            <div class="row align-items-center g-4">
+                <div class="col-md-6">
+                    <img src="../media/cementerio-viejo.jpg" alt="Vista antigua de Camarillas"
+                        class="img-fluid rounded shadow-sm" style="filter: grayscale(100%);">
+                </div>
+                <div class="col-md-6">
+                    <div style="text-align: justify; line-height: 1.7;">
+                        <h2 class="mb-3">Un pueblo con carácter</h2>
+                        <p>Las calles empedradas, la iglesia parroquial y el santuario de la Virgen del Campo son
+                            testigos mudos de la historia de Camarillas. Cada piedra guarda relatos de pastores,
+                            agricultores y familias que construyeron esta comunidad con esfuerzo y generosidad.</p>
+                        <p>El cementerio viejo, el lavadero y los antiguos corrales son vestigios de una forma de vida
+                            que se resiste a desaparecer y que la asociación se esfuerza por documentar y preservar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Línea temporal -->
+        <section class="container my-5 py-4" style="max-width: 750px;">
+            <h2 class="text-center mb-5">Hitos importantes</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <p class="timeline-year mb-1">Siglo XIII</p>
+                    <h3 class="h5 fw-bold mb-1">Primeras menciones documentales</h3>
+                    <p class="text-muted">Camarillas aparece en documentos de la Corona de Aragón vinculados al proceso
+                        de repoblación del territorio turolense.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-year mb-1">Siglo XVI</p>
+                    <h3 class="h5 fw-bold mb-1">Construcción de la iglesia parroquial</h3>
+                    <p class="text-muted">Se levanta el templo que preside el pueblo, con elementos renacentistas y
+                        mudéjares típicos del sur de Aragón.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-year mb-1">Siglo XVIII</p>
+                    <h3 class="h5 fw-bold mb-1">Auge ganadero</h3>
+                    <p class="text-muted">Camarillas vive su momento de mayor prosperidad económica gracias a la lana y
+                        la trashumancia, con rebaños que recorrían las cañadas reales.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-year mb-1">1936 – 1939</p>
+                    <h3 class="h5 fw-bold mb-1">Guerra Civil</h3>
+                    <p class="text-muted">El frente de Teruel afecta directamente a la zona. Camarillas sufre los
+                        efectos del conflicto bélico pero consigue preservar gran parte de su patrimonio.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-year mb-1">Años 60 – 70</p>
+                    <h3 class="h5 fw-bold mb-1">El éxodo rural</h3>
+                    <p class="text-muted">Como tantos pueblos de la España interior, Camarillas pierde gran parte de su
+                        población, que emigra a las ciudades en busca de oportunidades.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-year mb-1">1992</p>
+                    <h3 class="h5 fw-bold mb-1">Fundación de la Asociación Camerón</h3>
+                    <p class="text-muted">Un grupo de vecinos y camarillenses de corazón fundan la asociación para
+                        dinamizar el pueblo, organizar actividades y mantener viva la cultura local.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-year mb-1">2010</p>
+                    <h3 class="h5 fw-bold mb-1">Rehabilitación del salón social</h3>
+                    <p class="text-muted">Gracias al esfuerzo colectivo y a subvenciones, se rehabilita el antiguo
+                        salón del pueblo, convertido en centro de actividades y reuniones.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="timeline-year mb-1">Actualidad</p>
+                    <h3 class="h5 fw-bold mb-1">Camarillas sigue vivo</h3>
+                    <p class="text-muted">Con una agenda cultural activa, fiestas patronales cada verano y una
+                        comunidad conectada, el pueblo demuestra que los pequeños lugares siguen teniendo mucho
+                        que ofrecer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="container my-5">
+            <div class="p-5 text-center text-white rounded shadow-sm" style="background-color: #717744;">
+                <h2 class="display-6 fw-bold mb-3">¿Conoces alguna historia del pueblo?</h2>
+                <p class="fs-5 mb-4 mx-auto" style="max-width: 700px;">Si tienes fotografías antiguas, documentos o
+                    anécdotas que quieras compartir, nos encantaría escucharte.</p>
+                <a href="../unete/index.html" class="btn btn-primary btn-lg px-4 py-3 fw-bold shadow-sm">Contáctanos</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-white py-5 mt-5" style="background-color: #766153;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Asociación cultural Camerón</h3>
+                    <p class="small">
+                        D. Manuel 7, C. de Galindo,<br>
+                        44155 Camarillas, Teruel<br>
+                        <a href="mailto:junta@cameron.org"
+                            class="text-white text-decoration-none hover-underline">junta@cameron.org</a>
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Accesos directos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../actividades/index.html"
+                                class="text-white text-decoration-none hover-underline">Actividades</a></li>
+                        <li class="mb-2"><a href="./index.html"
+                                class="text-white text-decoration-none hover-underline">Historia</a></li>
+                        <li class="mb-2"><a href="../sobre/index.html"
+                                class="text-white text-decoration-none hover-underline">Sobre
+                                Camerón</a></li>
+                        <li class="mb-2"><a href="../unete/index.html"
+                                class="text-white text-decoration-none hover-underline">Únete</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3 fw-bold font-playfair">Síguenos</h3>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.facebook.com/p/Asociaci%C3%B3n-Cultural-Camer%C3%B3n-100064575526438"
+                            aria-label="Visita nuestro Facebook" target="_blank" class="text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/cameroncamarillas/" target="_blank"
+                            aria-label="Visita nuestro Instagram" class="text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4 opacity-25">
+
+            <div class="text-center small opacity-75">
+                <p class="mb-0">&copy;2025 Asociación cultural Camerón. Camarillas, Teruel</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+
+</html>
