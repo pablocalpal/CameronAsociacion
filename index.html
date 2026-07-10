@@ -15,6 +15,8 @@
     <script src="js/modo-oscuro.js"></script>
     <script src="js/cookies.js" defer></script>
     <meta name="color-scheme" content="light dark">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="js/supabase-config.js"></script>
 </head>
 <div id="cookie-banner" class="fixed-bottom bg-dark text-white p-3 shadow-lg" style="z-index: 9999;">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
@@ -89,61 +91,8 @@
         <section class="container my-5">
             <h2 class="text-center mb-4">Próximas actividades</h2>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <a href="./actividades/tour-historico-teatralizado/index.html"
-                        class="text-decoration-none text-reset">
-                        <div class="card h-100 border-0 shadow-sm" style="cursor: pointer; transition: transform 0.2s;"
-                            onmouseover="this.style.transform='translateY(-4px)'"
-                            onmouseout="this.style.transform='none'">
-                            <img src="./media/actividad_teatro.jpg" class="card-img-top"
-                                alt="Personas actuando en las calles del pueblo"
-                                style="height: 220px; object-fit: cover;">
-                            <div class="card-body">
-                                <h3 class="card-title h4">Tour histórico teatralizado</h3>
-                                <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 15
-                                    Diciembre, 2025</p>
-                                <p class="card-text">Se podrá seguir la historia de Camarillas interpretada en las
-                                    calles.
-                                </p>
-                                <span class="btn btn-link px-0 text-decoration-none fw-bold" style="color: #766153;">Más
-                                    sobre la actividad →</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img src="./media/presentacion_documental.jpg" class="card-img-top"
-                            alt="Presentación de un documental" style="height: 220px; object-fit: cover;">
-                        <div class="card-body">
-                            <h3 class="card-title h4">Documental españa vaciada</h3>
-                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 10 Junio,
-                                2026</p>
-                            <p class="card-text">Se presentará documental con foco principal en nuestro pueblo.</p>
-                            <a href="./actividades/index.html" class="btn btn-link px-0 text-decoration-none fw-bold"
-                                style="color: #766153;">Más sobre la actividad →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <img src="./media/presentacion_libro.jpg" class="card-img-top"
-                            alt="Personas atendiendo la presentacion de un libro"
-                            style="height: 220px; object-fit: cover;">
-                        <div class="card-body">
-                            <h3 class="card-title h4">Presentación libro españa vaciada</h3>
-                            <p class="card-text text-muted small"><i data-feather="calendar" class="me-1"></i> 12
-                                Agosto, 2026</p>
-                            <p class="card-text">Presentación del libro “En busca de La Ferte”, un estudio del
-                                patrimonio abandonado de la provincia de Teruel.</p>
-                            <a href="./actividades/index.html" class="btn btn-link px-0 text-decoration-none fw-bold"
-                                style="color: #766153;">Más sobre la actividad →</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4" id="proximas-container-home">
+                <p class="text-center text-muted">Cargando actividades...</p>
             </div>
 
         </section>
@@ -262,6 +211,8 @@
     <script>
         feather.replace()
     </script>
+    <script src="js/actividades-utils.js"></script>
+    <script src="js/actividades-home.js"></script>
 </body>
 
 </html>

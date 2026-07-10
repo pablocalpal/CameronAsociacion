@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Gestión de actividades — Asociación cultural Camerón</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/unete.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" type="image/x-icon" href="../media/logo.png">
+    <meta name="color-scheme" content="light dark">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="../js/supabase-config.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3 px-4">
+            <div class="container-fluid">
+                <span class="navbar-brand d-flex align-items-center text-dark fs-4">
+                    <img src="../media/logo.png" alt="Logotipo Asociación" height="30" class="me-2">
+                    Gestión de actividades
+                </span>
+                <div class="d-flex align-items-center gap-3">
+                    <span id="usuario-email" class="text-muted small"></span>
+                    <a href="./socios.html" class="btn btn-outline-primary btn-sm fw-bold">Gestionar Socios</a>
+                    <button id="logout-btn" class="btn btn-outline-secondary btn-sm fw-bold">Cerrar sesión</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 fw-bold mb-0">Actividades</h1>
+            <button class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#modal-actividad" id="btn-nueva">
+                <i data-feather="plus" class="me-1"></i> Nueva actividad
+            </button>
+        </div>
+
+        <div id="lista-mensaje" class="text-muted">Cargando actividades...</div>
+
+        <div class="table-responsive">
+            <table class="table align-middle bg-white shadow-sm" id="tabla-actividades" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Fecha</th>
+                        <th>Lugar</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-actividades-body"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal alta/edición -->
+    <div class="modal fade" id="modal-actividad" tabindex="-1" aria-labelledby="modal-actividad-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="form-actividad">
+                    <div class="modal-header">
+                        <h2 class="modal-title h5" id="modal-actividad-titulo">Nueva actividad</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="actividad-id">
+
+                        <div class="mb-3">
+                            <label for="titulo" class="form-label fw-bold">Título <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="titulo" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="resumen" class="form-label fw-bold">Resumen breve <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="resumen" rows="2" required
+                                placeholder="Se muestra en la lista de actividades"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contenido" class="form-label fw-bold">Descripción completa</label>
+                            <textarea class="form-control" id="contenido" rows="6"
+                                placeholder="Se muestra en la página de la actividad. Deja una línea en blanco entre párrafos."></textarea>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="fecha" class="form-label fw-bold">Fecha <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="fecha" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="hora" class="form-label fw-bold">Hora <span class="optional">(Opcional)</span></label>
+                                <input type="text" class="form-control" id="hora" placeholder="11:00">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="precio" class="form-label fw-bold">Precio <span class="optional">(Opcional)</span></label>
+                                <input type="text" class="form-control" id="precio" placeholder="Entrada libre">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lugar" class="form-label fw-bold">Lugar <span class="optional">(Opcional)</span></label>
+                            <input type="text" class="form-control" id="lugar" placeholder="Plaza Mayor, Camarillas">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imagen" class="form-label fw-bold">Imagen <span class="optional">(Opcional)</span></label>
+                            <input type="file" class="form-control" id="imagen" accept="image/*">
+                            <img id="imagen-actual" src="" alt="Imagen actual" style="display:none; max-height: 120px; margin-top: 10px; border-radius: 6px;">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div id="form-mensaje" class="message text-center flex-grow-1 mb-0"></div>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" id="guardar-btn" class="btn btn-primary fw-bold">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        feather.replace()
+    </script>
+    <script src="../js/actividades-utils.js"></script>
+    <script src="../js/admin-panel.js"></script>
+</body>
+
+</html>
