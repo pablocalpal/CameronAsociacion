@@ -40,19 +40,20 @@ input,
 textarea {
     padding: 12px;
     border: 1px solid #e0e0e0;
-    border-radius: 4px;
+    border-radius: var(--radius-sm, 8px);
     font-size: 14px;
     color: #666;
     background-color: #fafafa;
-    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s, box-shadow 0.3s;
     font-family: 'Roboto', sans-serif;
 }
 
 input:focus,
 textarea:focus {
     outline: none;
-    border-color: #999;
+    border-color: var(--primary-color);
     background-color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(118, 97, 83, 0.15);
 }
 
 textarea {
@@ -63,7 +64,7 @@ textarea {
 .optional {
     color: #999;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 0.85rem;
 }
 
 button {
@@ -72,27 +73,30 @@ button {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--radius-sm, 8px);
     font-size: 15px;
     cursor: pointer;
     margin-top: 10px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
 
 button:hover {
     background-color: #5a4d44;
+    box-shadow: var(--shadow-soft, 0 4px 18px rgba(55, 61, 32, 0.08));
+    transform: translateY(-2px);
 }
 
 button:active {
     background-color: #4d4139;
+    transform: translateY(0);
 }
 
 .message {
     margin-top: 20px;
     padding: 15px;
-    border-radius: 6px;
+    border-radius: var(--radius-sm, 8px);
     text-align: center;
     font-weight: 500;
     display: none;
@@ -114,15 +118,21 @@ button:active {
 }
 
 #politica-privacidad {
-    font-size: 12px;
+    font-size: 0.9rem;
 }
 
 #politica-privacidad a {
     color: var(--text-main);
+    text-decoration: underline;
 }
 
+/* --accent-color no da suficiente contraste como texto sobre el fondo
+   blanco de la tarjeta del formulario, así que el estado hover se refuerza
+   con un color ya usado para texto (--secondary-color) y más peso, no con
+   una tonalidad más clara. */
 #politica-privacidad a:hover {
-    color: var(--accent-color);
+    color: var(--secondary-color);
+    font-weight: 700;
 }
 
 /*Móvil*/
@@ -173,12 +183,16 @@ button:active {
     border: 1px solid #721c24;
 }
 
+/* El formulario vive dentro de un .card, que en oscuro usa --dark-nav-bg de
+   fondo; --accent-color apenas da 2,4:1 de contraste ahí, así que se usa
+   blanco (ya empleado en overrides de oscuro) y el subrayado marca el enlace. */
 [data-bs-theme="dark"] #politica-privacidad a {
-    color: var(--accent-color);
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 [data-bs-theme="dark"] #politica-privacidad a:hover {
-    color: #ffffff;
+    font-weight: 700;
 }
 
 [data-bs-theme="dark"] button {

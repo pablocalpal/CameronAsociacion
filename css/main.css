@@ -17,13 +17,40 @@
     /* Texto principal */
     --dark-nav-bg: #717744;
     /* Usando color secundario para nav/footer en dark mode */
+
+    /* Tokens de diseño (no cambian la paleta, ayudan a mantener consistencia) */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --shadow-soft: 0 4px 18px rgba(55, 61, 32, 0.08);
+    --shadow-hover: 0 12px 28px rgba(55, 61, 32, 0.16);
+    --transition-base: 0.25s ease;
+}
+
+* {
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+html {
+    /* Base 18px (112.5% de 16px): mejora la legibilidad general, especialmente para
+       personas mayores. Al usar rem, el resto de tamaños (botones, títulos, formularios)
+       escalan proporcionalmente sin tocar ningún color de la paleta. */
+    font-size: 112.5%;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--light-bg);
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
 }
 
 /* Typography Overrides */
@@ -31,15 +58,16 @@ h1,
 .h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 36px;
-    /* 2.5rem in banner */
+    font-size: clamp(2rem, 1.55rem + 1.8vw, 2.5rem);
+    line-height: 1.25;
 }
 
 h2,
 .h2 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 28px;
+    font-size: clamp(1.65rem, 1.4rem + 1vw, 1.9rem);
+    line-height: 1.3;
 }
 
 h3,
@@ -53,14 +81,33 @@ h3,
 
 h3,
 .h3 {
-    font-size: 22px;
+    font-size: clamp(1.3rem, 1.2rem + 0.5vw, 1.5rem);
+    line-height: 1.3;
 }
 
 .nav-link,
 .btn,
 .small-text {
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
+}
+
+/* Bootstrap "display" y "lead" fluidos (usados en los heroes) */
+.display-4 {
+    font-size: clamp(2.15rem, 1.65rem + 3vw, 3.5rem);
+}
+
+.display-5 {
+    font-size: clamp(2rem, 1.55rem + 2.6vw, 3rem);
+}
+
+.display-6 {
+    font-size: clamp(1.75rem, 1.45rem + 1.8vw, 2.5rem);
+}
+
+.lead {
+    font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
+    line-height: 1.7;
 }
 
 /* Custom Utilities */
@@ -81,15 +128,313 @@ h3,
     text-decoration: underline !important;
 }
 
-/* Bootstrap Overrides / Custom Components */
+img {
+    max-width: 100%;
+}
+
+/* ============================= */
+/* Navbar                        */
+/* ============================= */
+header .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    transition: box-shadow var(--transition-base);
+}
+
+.navbar-brand img {
+    transition: transform var(--transition-base);
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.06);
+}
+
+.navbar .nav-link {
+    position: relative;
+    padding: 0.65rem 0.6rem;
+    transition: color var(--transition-base);
+}
+
+.navbar-nav {
+    gap: 1.5rem !important;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: width var(--transition-base);
+}
+
+.navbar .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.navbar .nav-link:hover::after {
+    width: 100%;
+}
+
+#icono-modo-oscuro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    transition: background-color var(--transition-base);
+}
+
+#icono-modo-oscuro:hover {
+    background-color: var(--light-bg);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        margin-top: 0.75rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(92, 79, 66, 0.15);
+    }
+
+    .navbar-nav {
+        gap: 0.35rem !important;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    .navbar-nav .btn {
+        margin-top: 0.5rem;
+    }
+}
+
+/* ============================= */
+/* Hero banners                  */
+/* ============================= */
+.hero-banner {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-banner--xl {
+    min-height: clamp(300px, 55vw, 450px);
+}
+
+.hero-banner--lg {
+    min-height: clamp(280px, 48vw, 400px);
+}
+
+.hero-banner--md {
+    min-height: clamp(260px, 42vw, 350px);
+}
+
+@media (max-width: 575.98px) {
+    .hero-banner {
+        margin-left: 0.75rem !important;
+        margin-right: 0.75rem !important;
+        border-radius: var(--radius-md);
+    }
+}
+
+/* ============================= */
+/* Botones                       */
+/* ============================= */
+.btn {
+    border-radius: var(--radius-sm);
+    padding: 0.55rem 1.15rem;
+    transition: background-color var(--transition-base), border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
 .btn-primary:hover {
-    background-color: #5C4F42;
-    border-color: #5C4F42;
+    background-color: var(--text-main);
+    border-color: var(--text-main);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.75rem;
+    font-size: 1.1rem;
+}
+
+/* .btn ya sube el padding general; .btn-sm recupera un tamaño compacto
+   (usado en el banner de cookies y en el panel de administración) sin
+   quedar por debajo de un área cómoda para pulsar. */
+.btn-sm {
+    padding: 0.4rem 0.9rem;
+}
+
+/* ============================= */
+/* Tarjetas (actividades, sobre) */
+/* ============================= */
+.card {
+    border-radius: var(--radius-md) !important;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card.shadow-sm {
+    box-shadow: var(--shadow-soft) !important;
+}
+
+a:hover>.card.shadow-sm,
+.card.shadow-sm:hover {
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.card-img-top {
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+}
+
+.card .btn-link {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color var(--transition-base), color var(--transition-base);
+}
+
+.card:hover .btn-link {
+    text-decoration-color: currentColor;
+}
+
+/* ============================= */
+/* Secciones / ritmo vertical     */
+/* ============================= */
+@media (max-width: 575.98px) {
+    main .my-5 {
+        margin-top: 2.25rem !important;
+        margin-bottom: 2.25rem !important;
+    }
+
+    main section.py-4 {
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+    }
+
+    main .p-5 {
+        padding: 2rem !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .card.p-4 {
+        padding: 1.15rem !important;
+    }
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+/* ============================= */
+/* Footer                        */
+/* ============================= */
+footer a.text-white {
+    display: inline-flex;
+    align-items: center;
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+footer a.text-white:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+footer .d-flex.gap-3 a {
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+footer .d-flex.gap-3 a:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Texto de cierre del footer: se sube la opacidad para asegurar un
+   contraste AA sobre el fondo --primary-color, y se agranda ligeramente. */
+footer .opacity-75 {
+    opacity: 0.92;
+    font-size: 0.95rem;
+}
+
+footer p.small {
+    font-size: 0.95rem;
+}
+
+/* Bootstrap Overrides / Custom Components */
+.link-primary {
+    color: var(--primary-color) !important;
+    text-decoration: underline;
+}
+
+.link-primary:hover {
+    color: var(--text-main) !important;
+}
+
+/* El gris por defecto de Bootstrap para ".text-muted" no ofrece suficiente
+   contraste para una lectura cómoda sobre --light-bg. Se reutiliza
+   --text-main (ya usado como color de texto principal) en su lugar; la
+   jerarquía con el texto normal se mantiene por tamaño/peso, no por color. */
+.text-muted {
+    color: var(--text-main) !important;
+}
+
+.form-label {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+    min-height: 48px;
+    padding: 0.6rem 0.9rem;
+    font-size: 1rem;
+}
+
+textarea.form-control {
+    min-height: 100px;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(118, 97, 83, 0.3);
+}
+
+.form-check-input {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 /* Dark Mode Overrides */
@@ -105,12 +450,43 @@ h3,
     border-color: #5C4F42;
 }
 
+[data-bs-theme="dark"] .navbar .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+[data-bs-theme="dark"] .navbar .nav-link::after {
+    background-color: var(--accent-color);
+}
+
+[data-bs-theme="dark"] #icono-modo-oscuro:hover {
+    background-color: rgba(239, 241, 237, 0.15);
+}
+
+[data-bs-theme="dark"] .navbar-collapse {
+    border-top-color: rgba(239, 241, 237, 0.15);
+}
+
 [data-bs-theme="dark"] .text-dark {
     color: #eff1ed !important;
 }
 
 [data-bs-theme="dark"] .text-muted {
     color: #bcbd8b !important;
+}
+
+/* --accent-color solo da ~2.4:1 de contraste sobre --dark-nav-bg (el fondo
+   que usan .card/.navbar/.modal-content en oscuro), así que dentro de esos
+   componentes se usa blanco en su lugar para cumplir con AA. */
+[data-bs-theme="dark"] .card .text-muted,
+[data-bs-theme="dark"] .navbar .text-muted,
+[data-bs-theme="dark"] .modal-content .text-muted {
+    color: #fff !important;
+}
+
+[data-bs-theme="dark"] .card.shadow-sm,
+[data-bs-theme="dark"] a:hover>.card.shadow-sm,
+[data-bs-theme="dark"] .card.shadow-sm:hover {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* Accesibilidad: Foco visible */
@@ -137,4 +513,19 @@ h3,
 
 .skip-link:focus {
     top: 0;
+}
+
+/* Accesibilidad: respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
